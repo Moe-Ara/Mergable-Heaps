@@ -1,0 +1,32 @@
+\hypertarget{_fibonacci_heap_8hpp_source}{}\doxysection{Fibonacci\+Heap.\+hpp}
+\mbox{\hyperlink{_fibonacci_heap_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{node_8hpp}{node.hpp}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_fibonacci_heap}{FibonacciHeap}}\{}
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_fibonacci_heap_ac053cdb66516a33d1bf65a02a73dee67}{FibonacciHeap}}();}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_fibonacci_heap_a01b1aef3e2c5b729472bc9eaa82541f9}{FibonacciHeap}}(\mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a3805764e424d13b921e1938b068b1c30}{FibonacciHeap\_Insert}}(\mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{72     \mbox{\hyperlink{class_fibonacci_heap}{FibonacciHeap}}* \mbox{\hyperlink{class_fibonacci_heap_ace10cdd22faa2ccf322c15f998e1a87c}{FibonacciHeap\_Union}}(\mbox{\hyperlink{class_fibonacci_heap}{FibonacciHeap}}*);}
+\DoxyCodeLine{96     \mbox{\hyperlink{class_node}{Node}}* \mbox{\hyperlink{class_fibonacci_heap_a1e711c7230240cebd272eed18becfd13}{FibonacciHeap\_extractMin}}();}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a3073baeb16636d2f607a88340e6f0823}{FibonacciHeap\_decreaseKey}}(\mbox{\hyperlink{class_node}{Node}}*, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a4d7ed8f7289a45623bcd296c8ae5ce53}{FibonacciHeap\_delete}}(\mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{139     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_fibonacci_heap_a257f38b37fa18411f8aa7f5c6f1acd48}{getnumberOfNodes}}();}
+\DoxyCodeLine{146     \mbox{\hyperlink{class_node}{Node}}* \mbox{\hyperlink{class_fibonacci_heap_a141474ef627e68752188119c5158eb13}{getMin}}();}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keyword}{private}:}
+\DoxyCodeLine{152     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_fibonacci_heap_a5c5666b2f0390e87c7080792167b9eec}{numberOfNodes}};}
+\DoxyCodeLine{156     \mbox{\hyperlink{class_node}{Node}}* \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}};}
+\DoxyCodeLine{160     \mbox{\hyperlink{class_node}{Node}} *\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}};}
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a5083823697f227b55cc041db6a001788}{FibonacciHeap\_Link}}(\mbox{\hyperlink{class_node}{Node}}*, \mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{206     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a15e16b4de472d878d59d5beccbc84e79}{consolidate}}();}
+\DoxyCodeLine{222     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a2642da134c9235d5b4a0c5ac005c055e}{cut}}(\mbox{\hyperlink{class_node}{Node}}*, \mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{241     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fibonacci_heap_a389dff05276dc7cd14c12838715236c6}{cascadingCut}}( \mbox{\hyperlink{class_node}{Node}}*);}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \};}
+
+\end{DoxyCode}

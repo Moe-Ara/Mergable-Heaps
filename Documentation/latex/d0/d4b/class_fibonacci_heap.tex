@@ -1,0 +1,378 @@
+\hypertarget{class_fibonacci_heap}{}\doxysection{Fibonacci\+Heap Class Reference}
+\label{class_fibonacci_heap}\index{FibonacciHeap@{FibonacciHeap}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fibonacci_heap_ac053cdb66516a33d1bf65a02a73dee67}\label{class_fibonacci_heap_ac053cdb66516a33d1bf65a02a73dee67}} 
+{\bfseries Fibonacci\+Heap} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Constructor to create an empty Fibonacci Heap \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fibonacci_heap_a01b1aef3e2c5b729472bc9eaa82541f9}{Fibonacci\+Heap}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Constructor to create a Fibonacci Heap with one node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a3805764e424d13b921e1938b068b1c30}{Fibonacci\+Heap\+\_\+\+Insert}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Insert Operation to insert a new node n into a Fibonacci Heap H. It has O(1) actual cost and O(1) amortized cost \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fibonacci_heap}{Fibonacci\+Heap}} $\ast$ \mbox{\hyperlink{class_fibonacci_heap_ace10cdd22faa2ccf322c15f998e1a87c}{Fibonacci\+Heap\+\_\+\+Union}} (\mbox{\hyperlink{class_fibonacci_heap}{Fibonacci\+Heap}} $\ast$)
+\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_fibonacci_heap_a1e711c7230240cebd272eed18becfd13}{Fibonacci\+Heap\+\_\+extract\+Min}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Operation used to extract the node with the highest priority (node with minimum key), the operation removes it from the Heap and returns it. It has O(D(n) + t(\+H)) actual cost, and O(\+D(n)) amortized cost which is O(lg n) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a3073baeb16636d2f607a88340e6f0823}{Fibonacci\+Heap\+\_\+decrease\+Key}} (\mbox{\hyperlink{class_node}{Node}} $\ast$, int)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Operation used to decrease a key k of a node x. It has O(c) actual cost, and O(1) amortized cost \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a4d7ed8f7289a45623bcd296c8ae5ce53}{Fibonacci\+Heap\+\_\+delete}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ This operation is used to delete a node n from Heap. Its amortized cost is O(lg n) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fibonacci_heap_a257f38b37fa18411f8aa7f5c6f1acd48}{getnumber\+Of\+Nodes}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Getter to get the number of nodes n\mbox{[}H\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_fibonacci_heap_a141474ef627e68752188119c5158eb13}{get\+Min}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ Getter to get the node with the minimum key \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a5083823697f227b55cc041db6a001788}{Fibonacci\+Heap\+\_\+\+Link}} (\mbox{\hyperlink{class_node}{Node}} $\ast$, \mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ This operation is used to link nodes together, it does so by removing a node y from the root list of heap H, and making it a child of a node x \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a15e16b4de472d878d59d5beccbc84e79}{consolidate}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ This operation is used by extract\+Min(). It is used to link roots that has equal degrees until each root in the rool List of H, has a unique degree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a2642da134c9235d5b4a0c5ac005c055e}{cut}} (\mbox{\hyperlink{class_node}{Node}} $\ast$, \mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description }} ~\newline
+ This operation is used by decrease\+Key(). it is used to cut the link between node x and its parent y making x a new root in the root list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fibonacci_heap_a389dff05276dc7cd14c12838715236c6}{cascading\+Cut}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ This operation is used by decrease\+Key(). It cuts y from its parent and makes it a new root, however the parent of y is the new y. It calls itself recursivly, to cut all children of node n and make them new roots. It recurses until y is a root or it finds an unmarked node \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fibonacci_heap_a5c5666b2f0390e87c7080792167b9eec}\label{class_fibonacci_heap_a5c5666b2f0390e87c7080792167b9eec}} 
+int {\bfseries number\+Of\+Nodes}
+\begin{DoxyCompactList}\small\item\em number of nodes in Heap H, n\mbox{[}H\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}\label{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}} 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ {\bfseries root}
+\begin{DoxyCompactList}\small\item\em pointer to the root in Heap H \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}\label{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}} 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ {\bfseries min}
+\begin{DoxyCompactList}\small\item\em pointer the \mbox{\hyperlink{class_node}{Node}} with the minimum key value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fibonacci_heap_a01b1aef3e2c5b729472bc9eaa82541f9}\label{class_fibonacci_heap_a01b1aef3e2c5b729472bc9eaa82541f9}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap@{FibonacciHeap}}
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap()}{FibonacciHeap()}}
+{\footnotesize\ttfamily Fibonacci\+Heap\+::\+Fibonacci\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Constructor to create a Fibonacci Heap with one node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & single node to insert to the newly created Fibonacci Heap\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fibonacci_heap_a389dff05276dc7cd14c12838715236c6}\label{class_fibonacci_heap_a389dff05276dc7cd14c12838715236c6}} 
+\index{FibonacciHeap@{FibonacciHeap}!cascadingCut@{cascadingCut}}
+\index{cascadingCut@{cascadingCut}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{cascadingCut()}{cascadingCut()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::cascading\+Cut (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description}} ~\newline
+ This operation is used by decrease\+Key(). It cuts y from its parent and makes it a new root, however the parent of y is the new y. It calls itself recursivly, to cut all children of node n and make them new roots. It recurses until y is a root or it finds an unmarked node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & \mbox{\hyperlink{class_node}{Node}} y, which we want to cut from its parent parent\mbox{[}y\mbox{]}\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CASCADING-\/CUT(H, y)}
+\DoxyCodeLine{ 1 z ← p[y]}
+\DoxyCodeLine{ 2 \textcolor{keywordflow}{if} z ≠ NIL }
+\DoxyCodeLine{ 3    then \textcolor{keywordflow}{if} mark[y] = FALSE}
+\DoxyCodeLine{ 4            then mark[y] ← TRUE}
+\DoxyCodeLine{ 5            \textcolor{keywordflow}{else} CUT(H, y, z)}
+\DoxyCodeLine{ 6                 CASCADING-\/CUT(H, z)}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a15e16b4de472d878d59d5beccbc84e79}\label{class_fibonacci_heap_a15e16b4de472d878d59d5beccbc84e79}} 
+\index{FibonacciHeap@{FibonacciHeap}!consolidate@{consolidate}}
+\index{consolidate@{consolidate}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{consolidate()}{consolidate()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::consolidate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description }} ~\newline
+ This operation is used by extract\+Min(). It is used to link roots that has equal degrees until each root in the rool List of H, has a unique degree. 
+
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CONSOLIDATE(H)}
+\DoxyCodeLine{  1 \textcolor{keywordflow}{for} i ← 0 to D(n[H])     \textcolor{comment}{//D(n[H]) Maximum degree of any node in Heap H}}
+\DoxyCodeLine{  2      \textcolor{keywordflow}{do} A[i] ← NIL       \textcolor{comment}{//A[] buffer we want to use to link the trees together}}
+\DoxyCodeLine{  3 \textcolor{keywordflow}{for each} node w in the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{  4      \textcolor{keywordflow}{do} x ← w}
+\DoxyCodeLine{  5         d ← degree[x]}
+\DoxyCodeLine{  6         \textcolor{keywordflow}{while} A[d] ≠ NIL}
+\DoxyCodeLine{  7             \textcolor{keywordflow}{do} y ← A[d]      ▹ Another node with the same degree as x.}
+\DoxyCodeLine{  8                \textcolor{keywordflow}{if} key[x] > key[y]}
+\DoxyCodeLine{  9                   then exchange x ↔ y}
+\DoxyCodeLine{ 10                FIB-\/HEAP-\/LINK(H, y, x)}
+\DoxyCodeLine{ 11                A[d] ← NIL}
+\DoxyCodeLine{ 12                d←d + 1}
+\DoxyCodeLine{ 13         A[d] ←x}
+\DoxyCodeLine{ 14 \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ← NIL}
+\DoxyCodeLine{ 15 \textcolor{keywordflow}{for} i← 0 to D(n[H])}
+\DoxyCodeLine{ 16      \textcolor{keywordflow}{do} \textcolor{keywordflow}{if} A[i] ≠ NIL}
+\DoxyCodeLine{ 17            then add A[i] to the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{ 18                 \textcolor{keywordflow}{if} \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] = NIL or key[A[i]] < key[\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H]]}
+\DoxyCodeLine{ 19                    then \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ←A[i]}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a2642da134c9235d5b4a0c5ac005c055e}\label{class_fibonacci_heap_a2642da134c9235d5b4a0c5ac005c055e}} 
+\index{FibonacciHeap@{FibonacciHeap}!cut@{cut}}
+\index{cut@{cut}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{cut()}{cut()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::cut (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{,  }\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description }} ~\newline
+ This operation is used by decrease\+Key(). it is used to cut the link between node x and its parent y making x a new root in the root list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \mbox{\hyperlink{class_node}{Node}} x, which we want to cut from its parent y\\
+\hline
+{\em y} & \mbox{\hyperlink{class_node}{Node}} y, parent of x\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CUT(H, x, y)}
+\DoxyCodeLine{ 1 remove x from the child list of y, decrementing degree[y]}
+\DoxyCodeLine{ 2 add x to the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{ 3 parent[x] ← NIL 4 mark[x] ← FALSE}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a3073baeb16636d2f607a88340e6f0823}\label{class_fibonacci_heap_a3073baeb16636d2f607a88340e6f0823}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_decreaseKey@{FibonacciHeap\_decreaseKey}}
+\index{FibonacciHeap\_decreaseKey@{FibonacciHeap\_decreaseKey}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_decreaseKey()}{FibonacciHeap\_decreaseKey()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+decrease\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Operation used to decrease a key k of a node x. It has O(c) actual cost, and O(1) amortized cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node, whose key we want to decrease\\
+\hline
+{\em k} & New key k that we want to assign to node\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/DECREASE-\/KEY(H, x, k)}
+\DoxyCodeLine{ 1  \textcolor{keywordflow}{if} k > key[x]}
+\DoxyCodeLine{ 2     then error \textcolor{stringliteral}{"{}new key is greater than current key"{}}}
+\DoxyCodeLine{ 3  key[x] ← k}
+\DoxyCodeLine{ 4  y ← parent[x]}
+\DoxyCodeLine{ 5  \textcolor{keywordflow}{if} y≠ NIL and key[x] < key[y]}
+\DoxyCodeLine{ 6     then CUT(H, x, y)            \textcolor{comment}{//CUT() is included in the documentation}}
+\DoxyCodeLine{ 7          CASCADING-\/CUT(H, y)     \textcolor{comment}{//CASCADING-\/CUT() is included in the documentation}}
+\DoxyCodeLine{ 8  \textcolor{keywordflow}{if} key[x] < key[\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H]]}
+\DoxyCodeLine{ 9      then \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ←x}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a4d7ed8f7289a45623bcd296c8ae5ce53}\label{class_fibonacci_heap_a4d7ed8f7289a45623bcd296c8ae5ce53}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_delete@{FibonacciHeap\_delete}}
+\index{FibonacciHeap\_delete@{FibonacciHeap\_delete}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_delete()}{FibonacciHeap\_delete()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ This operation is used to delete a node n from Heap. Its amortized cost is O(lg n) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{class_node}{Node}} n, which we want to delete from H\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/DELETE(H, x)}
+\DoxyCodeLine{ 1 FIB-\/HEAP-\/DECREASE-\/KEY(H, x, -\/∞)}
+\DoxyCodeLine{ 2 FIB-\/HEAP-\/EXTRACT-\/MIN(H) }
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a1e711c7230240cebd272eed18becfd13}\label{class_fibonacci_heap_a1e711c7230240cebd272eed18becfd13}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_extractMin@{FibonacciHeap\_extractMin}}
+\index{FibonacciHeap\_extractMin@{FibonacciHeap\_extractMin}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_extractMin()}{FibonacciHeap\_extractMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+extract\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Operation used to extract the node with the highest priority (node with minimum key), the operation removes it from the Heap and returns it. It has O(D(n) + t(\+H)) actual cost, and O(\+D(n)) amortized cost which is O(lg n) 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_node}{Node}} x with the minimum key (node with highest priority) 
+\end{DoxyReturn}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/EXTRACT-\/MIN(H)}
+\DoxyCodeLine{  1  z←min[H]}
+\DoxyCodeLine{  2  \textcolor{keywordflow}{if} z≠ NIL}
+\DoxyCodeLine{  3     then \textcolor{keywordflow}{for each} child x of z}
+\DoxyCodeLine{  4              \textcolor{keywordflow}{do} add x to the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{  5                 parent[x] ← NIL}
+\DoxyCodeLine{  6          remove z from the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{  7          \textcolor{keywordflow}{if} z = right[z]}
+\DoxyCodeLine{  8             then \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ← NIL}
+\DoxyCodeLine{  9             \textcolor{keywordflow}{else} \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ← right[z]}
+\DoxyCodeLine{ 10                  CONSOLIDATE(H)}
+\DoxyCodeLine{ 11          n[H] ← n[H] -\/ 1}
+\DoxyCodeLine{ 12  \textcolor{keywordflow}{return} z}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a3805764e424d13b921e1938b068b1c30}\label{class_fibonacci_heap_a3805764e424d13b921e1938b068b1c30}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_Insert@{FibonacciHeap\_Insert}}
+\index{FibonacciHeap\_Insert@{FibonacciHeap\_Insert}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_Insert()}{FibonacciHeap\_Insert()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Insert Operation to insert a new node n into a Fibonacci Heap H. It has O(1) actual cost and O(1) amortized cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{class_node}{Node}} to insert into the Fibonacci Heap H \\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/INSERT(H, x)  }
+\DoxyCodeLine{ 1  degree[x] ← 0    \textcolor{comment}{//degree of node x}}
+\DoxyCodeLine{ 2  parent[x] ← NIL  \textcolor{comment}{//Parent of node x}}
+\DoxyCodeLine{ 3  child[x] ← NIL   \textcolor{comment}{//Child of node x}}
+\DoxyCodeLine{ 4  left[x] ←x       \textcolor{comment}{//Node left to node x}}
+\DoxyCodeLine{ 5  right[x] ←x      \textcolor{comment}{//Node right to node x}}
+\DoxyCodeLine{ 6  mark[x] ← FALSE  \textcolor{comment}{//Mark of x}}
+\DoxyCodeLine{ 7  concatenate the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list containing x with \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list H }
+\DoxyCodeLine{ 8  \textcolor{keywordflow}{if} \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] = NIL or key[x] < key[\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H]]  }
+\DoxyCodeLine{ 9  then \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ←x 10  n[H] ←n[H] + 1    \textcolor{comment}{//n[H]= number of nodes in H}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a5083823697f227b55cc041db6a001788}\label{class_fibonacci_heap_a5083823697f227b55cc041db6a001788}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_Link@{FibonacciHeap\_Link}}
+\index{FibonacciHeap\_Link@{FibonacciHeap\_Link}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_Link()}{FibonacciHeap\_Link()}}
+{\footnotesize\ttfamily void Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{,  }\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description }} ~\newline
+ This operation is used to link nodes together, it does so by removing a node y from the root list of heap H, and making it a child of a node x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & The node y, which will be removed from the root list and assigned as a child to node x\\
+\hline
+{\em x} & \mbox{\hyperlink{class_node}{Node}} x, which will be the parent of y \\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/LINK(H, y, x)}
+\DoxyCodeLine{ 1  remove y from the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{ 2  make y a child of x, incrementing degree[x]}
+\DoxyCodeLine{ 3  mark[y] ← FALSE }
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_ace10cdd22faa2ccf322c15f998e1a87c}\label{class_fibonacci_heap_ace10cdd22faa2ccf322c15f998e1a87c}} 
+\index{FibonacciHeap@{FibonacciHeap}!FibonacciHeap\_Union@{FibonacciHeap\_Union}}
+\index{FibonacciHeap\_Union@{FibonacciHeap\_Union}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{FibonacciHeap\_Union()}{FibonacciHeap\_Union()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fibonacci_heap}{Fibonacci\+Heap}} $\ast$ Fibonacci\+Heap\+::\+Fibonacci\+Heap\+\_\+\+Union (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fibonacci_heap}{Fibonacci\+Heap}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+
+
+{\bfseries{Description }} ~\newline
+ Operation to Merge two Fibonacci Heap H1 and H2 into one Fibonacci Heap H. It has O(1) actual cost and O(1) amortized cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em H2} & A Fibonacci Heap H2 to merge with Fibonacci Heap H1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Heap H which is the result of merging H1 and H2 together 
+\end{DoxyReturn}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FIB-\/HEAP-\/UNION(H1, H2)}
+\DoxyCodeLine{ 1  H← MAKE-\/FIB-\/HEAP()}
+\DoxyCodeLine{ 2  \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ←min[H1]}
+\DoxyCodeLine{ 3  concatenate the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H2 with the \mbox{\hyperlink{class_fibonacci_heap_a64dd6968ecec33c55c92161f1cea337f}{root}} list of H}
+\DoxyCodeLine{ 4  \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H1] = NIL) or (\mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H2] ≠ NIL and \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H2] < \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H1])}
+\DoxyCodeLine{ 5    then \mbox{\hyperlink{class_fibonacci_heap_ad53e7b074024d6b6c9a13652f8e7329b}{min}}[H] ←min[H2]}
+\DoxyCodeLine{ 6  n[H] ←n[H1] + n[H2]     \textcolor{comment}{//n[H]= number of nodes in the heap}}
+\DoxyCodeLine{ 7  free the objects H1 and H2}
+\DoxyCodeLine{ 8  \textcolor{keywordflow}{return} H}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_fibonacci_heap_a141474ef627e68752188119c5158eb13}\label{class_fibonacci_heap_a141474ef627e68752188119c5158eb13}} 
+\index{FibonacciHeap@{FibonacciHeap}!getMin@{getMin}}
+\index{getMin@{getMin}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{getMin()}{getMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Fibonacci\+Heap\+::get\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Getter to get the node with the minimum key 
+
+\begin{DoxyReturn}{Returns}
+The node that has the minimum key
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fibonacci_heap_a257f38b37fa18411f8aa7f5c6f1acd48}\label{class_fibonacci_heap_a257f38b37fa18411f8aa7f5c6f1acd48}} 
+\index{FibonacciHeap@{FibonacciHeap}!getnumberOfNodes@{getnumberOfNodes}}
+\index{getnumberOfNodes@{getnumberOfNodes}!FibonacciHeap@{FibonacciHeap}}
+\doxysubsubsection{\texorpdfstring{getnumberOfNodes()}{getnumberOfNodes()}}
+{\footnotesize\ttfamily int Fibonacci\+Heap\+::getnumber\+Of\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description }} ~\newline
+ Getter to get the number of nodes n\mbox{[}H\mbox{]} 
+
+\begin{DoxyReturn}{Returns}
+The number of nodes n in Fibonacci Heap H
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_fibonacci_heap_8hpp}{Fibonacci\+Heap.\+hpp}}\end{DoxyCompactItemize}

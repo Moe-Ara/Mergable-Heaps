@@ -1,0 +1,321 @@
+\hypertarget{class_binomial_heap}{}\doxysection{Binomial\+Heap Class Reference}
+\label{class_binomial_heap}\index{BinomialHeap@{BinomialHeap}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_binomial_heap_ace4f32509eae5e8508433d7e291f2a3e}\label{class_binomial_heap_ace4f32509eae5e8508433d7e291f2a3e}} 
+{\bfseries Binomial\+Heap} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Default Constructor, used to create a new empty Binomial Heap H. This operation takes O(1) time \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binomial_heap_a8779d9906c2760101980e377d8ca15cf}{Binomial\+Heap\+\_\+\+Insert}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ The Binomial\+Heap\+\_\+\+Insert is used to insert a node n into a binomial heap H This operation has O(lg n) cost \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binomial_heap_afe2b3e2cd4aaa44caa97dae40ac1ceb1}{Binomial\+Heap\+\_\+\+Union}} (\mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+\+Union is used to meld binomial heaps together and keeping the binomial heap priorities It does so by creting a new heap that is the result of using Binomial\+\_\+\+Merge(h1,h2); after that it starts linking the trees depending on degree and keys to keep the min-\/heap property. The result is H= H1 U H2. This operation has O(lg n) cost \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_binomial_heap_a3d26eb4927d445aa267a48b2a7dd60db}{Binomial\+Heap\+\_\+extract\+Min}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+extract\+Min is used to return the node n with the minimum key k; it deletes it from the heap H. It reverses the children of the extracted node and puts them inside a new heap H{\ttfamily  We then call Binomial\+Heap\+\_\+\+Union to meld H and H} together. This operation takes O(lg n) time \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binomial_heap_af2fe16d9fd232108a677f204b5d5f0cb}{Binomial\+Heap\+\_\+decrease\+Key}} (\mbox{\hyperlink{class_node}{Node}} $\ast$, int)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+decrease\+Key is used to decrese a key k of a node n; It checks if the new key k` is less than the actual key k of node n then it \textquotesingle{}sifts' it down; i.\+e it swaps the node n with its child if it has a child that has key k less than that of node n This operation has O(lg n) cost \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_binomial_heap_aa44066fa839c3282aa8d6bce6ed712d4}{Binomial\+Heap\+\_\+delete\+Node}} (\mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+delete\+Node deletes a node n from heap H; It does so by simply calling Binomial\+Heap\+\_\+decrease\+Key and make it the node with the minimum key, and then it calls Binomial\+Heap\+\_\+extract\+Min to take it out This Operation takes O(lg n) time \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}{Binomial\+Heap\+\_\+find\+Min}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ \mbox{\hyperlink{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}{Binomial\+Heap\+\_\+find\+Min()}} is used to find the node n with the minimum key k; This Operation takes O(lg n) time \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_binomial_heap_a65428f3c6c9d94ef82091d09cf9fd3b1}{get\+Root}} ()
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ getter for the root of the heap \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_binomial_heap_a254030dd91113955aa454ad148f316e2}{Binomial\+\_\+\+Link}} (\mbox{\hyperlink{class_node}{Node}} $\ast$, \mbox{\hyperlink{class_node}{Node}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+\_\+\+Link function is used to link binomial trees of the same degree together; it does so by setting the node with greatest key as a child to the other node. This operation has O(1) runtime complexity \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ \mbox{\hyperlink{class_binomial_heap_ae135c16850f6393b59df2ff9f15566cb}{Binomial\+\_\+\+Merge}} (\mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$, \mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$)
+\begin{DoxyCompactList}\small\item\em {\bfseries{Description}} ~\newline
+ Binomial\+\_\+\+Merge is used to merge the root lists of two binomial heaps h1 and h2; However it does it without linking the trees together, and it orderes the root list in ascending order, depending on the degree of each node. This operation is executed in O(lg n) time \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_binomial_heap_ab3194ca953cba3ff091ccac1e65d6086}\label{class_binomial_heap_ab3194ca953cba3ff091ccac1e65d6086}} 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ {\bfseries root}
+\begin{DoxyCompactList}\small\item\em Pointer to the Root of the heap \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_binomial_heap_afc266fb16191ab383ccefe86fdf9b7a0}\label{class_binomial_heap_afc266fb16191ab383ccefe86fdf9b7a0}} 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ {\bfseries min}
+\begin{DoxyCompactList}\small\item\em Pointer to the Minimum \mbox{\hyperlink{class_node}{Node}} in the heap; this is not necessary to define as we can use find\+Min \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binomial_heap_a254030dd91113955aa454ad148f316e2}\label{class_binomial_heap_a254030dd91113955aa454ad148f316e2}} 
+\index{BinomialHeap@{BinomialHeap}!Binomial\_Link@{Binomial\_Link}}
+\index{Binomial\_Link@{Binomial\_Link}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{Binomial\_Link()}{Binomial\_Link()}}
+{\footnotesize\ttfamily void Binomial\+Heap\+::\+Binomial\+\_\+\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{,  }\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+\_\+\+Link function is used to link binomial trees of the same degree together; it does so by setting the node with greatest key as a child to the other node. This operation has O(1) runtime complexity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em 1st Node} & The node with greatest Key\\
+\hline
+{\em 2nd Node} & The node with least Key\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/LINK(y, z)}
+\DoxyCodeLine{ 1  p[y] ← z}
+\DoxyCodeLine{ 2  sibling[y] ← child[z]}
+\DoxyCodeLine{ 3  child[z] ← y}
+\DoxyCodeLine{ 4  degree[z] ← degree[z] + 1}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_ae135c16850f6393b59df2ff9f15566cb}\label{class_binomial_heap_ae135c16850f6393b59df2ff9f15566cb}} 
+\index{BinomialHeap@{BinomialHeap}!Binomial\_Merge@{Binomial\_Merge}}
+\index{Binomial\_Merge@{Binomial\_Merge}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{Binomial\_Merge()}{Binomial\_Merge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Binomial\+Heap\+::\+Binomial\+\_\+\+Merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$}]{,  }\item[{\mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+\_\+\+Merge is used to merge the root lists of two binomial heaps h1 and h2; However it does it without linking the trees together, and it orderes the root list in ascending order, depending on the degree of each node. This operation is executed in O(lg n) time 
+
+
+\begin{DoxyParams}{Parameters}
+{\em 1st Heap} & the first Binomial Heap\\
+\hline
+{\em 2nd Heap} & the second Binomial Heap\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Heap with root list that is the result of merging the root lists of two Binomial Heaps H1 and H2
+\end{DoxyReturn}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/Merge(H, H`)}
+\DoxyCodeLine{ 1  a = head[H1]}
+\DoxyCodeLine{ 2  b = head[H2]}
+\DoxyCodeLine{ 3  head[H1] = Min -\/ Degree(a, b)}
+\DoxyCodeLine{ 4  \textcolor{keywordflow}{if} head[H1] = NIL}
+\DoxyCodeLine{ 5      \textcolor{keywordflow}{return}}
+\DoxyCodeLine{ 6  \textcolor{keywordflow}{if} head[H1] = b}
+\DoxyCodeLine{ 7      then b = a}
+\DoxyCodeLine{ 8  a = head[H1]}
+\DoxyCodeLine{ 9  \textcolor{keywordflow}{while} b <> NIL}
+\DoxyCodeLine{10      \textcolor{keywordflow}{do} \textcolor{keywordflow}{if} sibling[a] = NIL}
+\DoxyCodeLine{11          then sibling[a] = b}
+\DoxyCodeLine{12              \textcolor{keywordflow}{return}}
+\DoxyCodeLine{13      \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} degree[sibling[a]] < degree[b]}
+\DoxyCodeLine{14              then a = sibling[a]}
+\DoxyCodeLine{15      \textcolor{keywordflow}{else} c = sibling[b]}
+\DoxyCodeLine{16              sibling[b] = sibling[a]}
+\DoxyCodeLine{17              sibling[a] = b}
+\DoxyCodeLine{18              a = sibling[a]}
+\DoxyCodeLine{19              b = c }
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_af2fe16d9fd232108a677f204b5d5f0cb}\label{class_binomial_heap_af2fe16d9fd232108a677f204b5d5f0cb}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_decreaseKey@{BinomialHeap\_decreaseKey}}
+\index{BinomialHeap\_decreaseKey@{BinomialHeap\_decreaseKey}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_decreaseKey()}{BinomialHeap\_decreaseKey()}}
+{\footnotesize\ttfamily void Binomial\+Heap\+::\+Binomial\+Heap\+\_\+decrease\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+decrease\+Key is used to decrese a key k of a node n; It checks if the new key k` is less than the actual key k of node n then it \textquotesingle{}sifts' it down; i.\+e it swaps the node n with its child if it has a child that has key k less than that of node n This operation has O(lg n) cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the \mbox{\hyperlink{class_node}{Node}} n, whose key we want to decrese\\
+\hline
+{\em k} & new key that we want to assign to node n\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/DECREASE-\/KEY(H, x, k)}
+\DoxyCodeLine{  1 \textcolor{keywordflow}{if} k > key[x]}
+\DoxyCodeLine{  2    then error \textcolor{stringliteral}{"{}new key is greater than current key"{}}}
+\DoxyCodeLine{  3 key[x] ← k}
+\DoxyCodeLine{  4 y ← x}
+\DoxyCodeLine{  5 z ← p[y]}
+\DoxyCodeLine{  6 \textcolor{keywordflow}{while} z≠ NIL and key[y] < key[z]}
+\DoxyCodeLine{  7     \textcolor{keywordflow}{do} exchange key[y] ↔ key[z]}
+\DoxyCodeLine{  8        ▸ If y and z have satellite fields, exchange them, too.}
+\DoxyCodeLine{  9        y ← z}
+\DoxyCodeLine{ 10        z ← p[y]}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_aa44066fa839c3282aa8d6bce6ed712d4}\label{class_binomial_heap_aa44066fa839c3282aa8d6bce6ed712d4}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_deleteNode@{BinomialHeap\_deleteNode}}
+\index{BinomialHeap\_deleteNode@{BinomialHeap\_deleteNode}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_deleteNode()}{BinomialHeap\_deleteNode()}}
+{\footnotesize\ttfamily void Binomial\+Heap\+::\+Binomial\+Heap\+\_\+delete\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+delete\+Node deletes a node n from heap H; It does so by simply calling Binomial\+Heap\+\_\+decrease\+Key and make it the node with the minimum key, and then it calls Binomial\+Heap\+\_\+extract\+Min to take it out This Operation takes O(lg n) time 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{class_node}{Node}} to be deleted\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/DELETE(H, x)}
+\DoxyCodeLine{ 1  BINOMIAL-\/HEAP-\/DECREASE-\/KEY(H, x, -\/∞)}
+\DoxyCodeLine{ 2  BINOMIAL-\/HEAP-\/EXTRACT-\/MIN(H)}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_a3d26eb4927d445aa267a48b2a7dd60db}\label{class_binomial_heap_a3d26eb4927d445aa267a48b2a7dd60db}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_extractMin@{BinomialHeap\_extractMin}}
+\index{BinomialHeap\_extractMin@{BinomialHeap\_extractMin}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_extractMin()}{BinomialHeap\_extractMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Binomial\+Heap\+::\+Binomial\+Heap\+\_\+extract\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+extract\+Min is used to return the node n with the minimum key k; it deletes it from the heap H. It reverses the children of the extracted node and puts them inside a new heap H{\ttfamily  We then call Binomial\+Heap\+\_\+\+Union to meld H and H} together. This operation takes O(lg n) time 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_node}{Node}} n with the minimum Key k 
+\end{DoxyReturn}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/EXTRACT-\/MIN(H)}
+\DoxyCodeLine{ 1  find the \mbox{\hyperlink{class_binomial_heap_ab3194ca953cba3ff091ccac1e65d6086}{root}} x with the minimum key in the \mbox{\hyperlink{class_binomial_heap_ab3194ca953cba3ff091ccac1e65d6086}{root}} list of H, and remove x from the \mbox{\hyperlink{class_binomial_heap_ab3194ca953cba3ff091ccac1e65d6086}{root}} list of H @see \mbox{\hyperlink{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}{BinomialHeap\_findMin}}()}
+\DoxyCodeLine{ 2  H′ ← MAKE-\/BINOMIAL-\/HEAP()}
+\DoxyCodeLine{ 3  reverse the order of the linked list of x\textcolor{stringliteral}{'s children, and set head[H′] to point to the head of the resulting list}}
+\DoxyCodeLine{\textcolor{stringliteral}{ 4  H ← BINOMIAL-\/HEAP-\/UNION(H, H′)}}
+\DoxyCodeLine{\textcolor{stringliteral}{ 5  return x}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}\label{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_findMin@{BinomialHeap\_findMin}}
+\index{BinomialHeap\_findMin@{BinomialHeap\_findMin}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_findMin()}{BinomialHeap\_findMin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Binomial\+Heap\+::\+Binomial\+Heap\+\_\+find\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ \mbox{\hyperlink{class_binomial_heap_ab008e77bcb82b2860e96df03737235c1}{Binomial\+Heap\+\_\+find\+Min()}} is used to find the node n with the minimum key k; This Operation takes O(lg n) time 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_node}{Node}} n with the minimum Key k
+\end{DoxyReturn}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/MINIMUM(H)}
+\DoxyCodeLine{ 1  y ← NIL}
+\DoxyCodeLine{ 2  x ← head[H]}
+\DoxyCodeLine{ 3  \mbox{\hyperlink{class_binomial_heap_afc266fb16191ab383ccefe86fdf9b7a0}{min}} ← ∞}
+\DoxyCodeLine{ 4  \textcolor{keywordflow}{while} x ≠ NIL}
+\DoxyCodeLine{ 5     \textcolor{keywordflow}{do} \textcolor{keywordflow}{if} key[x] < \mbox{\hyperlink{class_binomial_heap_afc266fb16191ab383ccefe86fdf9b7a0}{min}}}
+\DoxyCodeLine{ 6           then \mbox{\hyperlink{class_binomial_heap_afc266fb16191ab383ccefe86fdf9b7a0}{min}} ← key[x]}
+\DoxyCodeLine{ 7                y ← x }
+\DoxyCodeLine{ 8         x ← sibling[x]}
+\DoxyCodeLine{ 9  \textcolor{keywordflow}{return} y}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_a8779d9906c2760101980e377d8ca15cf}\label{class_binomial_heap_a8779d9906c2760101980e377d8ca15cf}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_Insert@{BinomialHeap\_Insert}}
+\index{BinomialHeap\_Insert@{BinomialHeap\_Insert}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_Insert()}{BinomialHeap\_Insert()}}
+{\footnotesize\ttfamily void Binomial\+Heap\+::\+Binomial\+Heap\+\_\+\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ The Binomial\+Heap\+\_\+\+Insert is used to insert a node n into a binomial heap H This operation has O(lg n) cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{class_node}{Node}} to be inserted \\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/INSERT(H, x)}
+\DoxyCodeLine{ 1  H′← MAKE-\/BINOMIAL-\/HEAP()    \textcolor{comment}{//create a new Binomial Heap}}
+\DoxyCodeLine{ 2  p[x] ← NIL                  \textcolor{comment}{//p[x] is the parent of x}}
+\DoxyCodeLine{ 3  child[x] ← NIL              \textcolor{comment}{//child[x] is the child of x}}
+\DoxyCodeLine{ 4  sibling[x] ← NIL}
+\DoxyCodeLine{ 5  degree[x] ← 0}
+\DoxyCodeLine{ 6  head[H′] ← x}
+\DoxyCodeLine{ 7  H← BINOMIAL-\/HEAP-\/UNION(H, H′) }
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_afe2b3e2cd4aaa44caa97dae40ac1ceb1}\label{class_binomial_heap_afe2b3e2cd4aaa44caa97dae40ac1ceb1}} 
+\index{BinomialHeap@{BinomialHeap}!BinomialHeap\_Union@{BinomialHeap\_Union}}
+\index{BinomialHeap\_Union@{BinomialHeap\_Union}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{BinomialHeap\_Union()}{BinomialHeap\_Union()}}
+{\footnotesize\ttfamily void Binomial\+Heap\+::\+Binomial\+Heap\+\_\+\+Union (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_binomial_heap}{Binomial\+Heap}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ Binomial\+Heap\+\_\+\+Union is used to meld binomial heaps together and keeping the binomial heap priorities It does so by creting a new heap that is the result of using Binomial\+\_\+\+Merge(h1,h2); after that it starts linking the trees depending on degree and keys to keep the min-\/heap property. The result is H= H1 U H2. This operation has O(lg n) cost 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Heap} & A binomial Heap to meld with the current heap\\
+\hline
+\end{DoxyParams}
+{\bfseries{Pseudocode }} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BINOMIAL-\/HEAP-\/UNION(H1, H2)}
+\DoxyCodeLine{ 1  H ← MAKE-\/BINOMIAL-\/HEAP()}
+\DoxyCodeLine{ 2  head[H] ← BINOMIAL-\/HEAP-\/MERGE(H1, H2)       @see \mbox{\hyperlink{class_binomial_heap_ae135c16850f6393b59df2ff9f15566cb}{Binomial\_Merge}}(\mbox{\hyperlink{class_binomial_heap}{BinomialHeap}}*, \mbox{\hyperlink{class_binomial_heap}{BinomialHeap}}*)}
+\DoxyCodeLine{ 3  free the objects H1 and H2 but not the lists they point to }
+\DoxyCodeLine{ 4  \textcolor{keywordflow}{if} head[H] = NIL}
+\DoxyCodeLine{ 5     then \textcolor{keywordflow}{return} H }
+\DoxyCodeLine{ 6  prev-\/x ← NIL }
+\DoxyCodeLine{ 7  x ← head[H]}
+\DoxyCodeLine{ 8  next-\/x ← sibling[x]}
+\DoxyCodeLine{ 9  \textcolor{keywordflow}{while} next-\/x ≠ NIL}
+\DoxyCodeLine{10      \textcolor{keywordflow}{do} \textcolor{keywordflow}{if} (degree[x] ≠ degree[next-\/x]) or (sibling[next-\/x] ≠ NIL and degree[sibling[next-\/x]] = degree[x])}
+\DoxyCodeLine{11            then prev-\/x ← x }
+\DoxyCodeLine{12                 x ← next-\/x }
+\DoxyCodeLine{13            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} key[x] ≤ key[next-\/x]}
+\DoxyCodeLine{14                    then sibling[x] ← sibling[next-\/x]          }
+\DoxyCodeLine{15                         BINOMIAL-\/LINK(next-\/x, x)    @see \mbox{\hyperlink{class_binomial_heap_a254030dd91113955aa454ad148f316e2}{Binomial\_Link}}(\mbox{\hyperlink{class_node}{Node}}*,\mbox{\hyperlink{class_node}{Node}}*);          }
+\DoxyCodeLine{16                    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} prev-\/x = NIL                        }
+\DoxyCodeLine{17                            then head[H] ←next-\/x▹ Case 4}
+\DoxyCodeLine{18                            \textcolor{keywordflow}{else} sibling[prev-\/x] ← next-\/x}
+\DoxyCodeLine{19                         BINOMIAL-\/LINK(x, next-\/x)               }
+\DoxyCodeLine{20                         x ← next-\/x}
+\DoxyCodeLine{21         next-\/x ← sibling[x]}
+\DoxyCodeLine{22  \textcolor{keywordflow}{return} H}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_binomial_heap_a65428f3c6c9d94ef82091d09cf9fd3b1}\label{class_binomial_heap_a65428f3c6c9d94ef82091d09cf9fd3b1}} 
+\index{BinomialHeap@{BinomialHeap}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!BinomialHeap@{BinomialHeap}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} $\ast$ Binomial\+Heap\+::get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{Description}} ~\newline
+ getter for the root of the heap 
+
+\begin{DoxyReturn}{Returns}
+Root r of Heap H 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_binomial_heap_8hpp}{Binomial\+Heap.\+hpp}}\end{DoxyCompactItemize}
