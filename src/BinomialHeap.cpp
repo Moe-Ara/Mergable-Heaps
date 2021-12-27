@@ -6,6 +6,9 @@ BinomialHeap::BinomialHeap() {
 	 root = nullptr;
 	 min = nullptr;
 }
+BinomialHeap::BinomialHeap(Node* n) {
+	root = min = n;
+}
 //getter for the root
 Node* BinomialHeap::getRoot() {
 	return this-> root;
