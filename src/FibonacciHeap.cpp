@@ -7,8 +7,10 @@ FibonacciHeap::FibonacciHeap()
 }
 FibonacciHeap::FibonacciHeap(Node *n)
 {
-    root = n;
-    min = n;
+    root= n;
+    root->setRight(n);
+    root->setLeft(n);
+    min = root;
     numberOfNodes = 1;
 }
 void FibonacciHeap::FibonacciHeap_Insert(Node *node)
@@ -68,13 +70,15 @@ FibonacciHeap *FibonacciHeap::FibonacciHeap_Union(FibonacciHeap *H)
 
 Node *FibonacciHeap::FibonacciHeap_extractMin()
 {
+    /*
     Node *result = min;
-    Node *chd, *nxt;
-    Node **childList;
-    if (result)
+    Node* chd;
+    Node* nxt;
+    Node** childList;
+    if (result!=nullptr)
     {
         chd = result->getChild();
-        if (chd)
+        if (chd!=nullptr)
         {
             childList = new Node *[result->getDegree()];
             nxt = chd;
@@ -111,6 +115,39 @@ Node *FibonacciHeap::FibonacciHeap_extractMin()
         numberOfNodes--;
     }
     return result;
+    */
+    if (!min) { return nullptr; }
+    Node* z = min;
+    Node* pointer;
+    pointer = z;
+    Node* x;
+    if (z->getChild()){
+        x = z->getChild();
+        do {
+            pointer = x->getRight();
+            min->getLeft()->setRight(x);
+            x->setRight(min);
+            x->setLeft(min->getLeft());
+            min->setLeft(x);
+            if (x->getKey() < min->getKey()) {
+                min = x;
+            }
+            x->setParent(nullptr);
+            x = pointer;
+        } while (pointer != z->getChild());
+    }
+    z->getLeft()->setRight(z->getRight());
+    z->getRight()->setLeft(z->getLeft());
+    min = z->getRight();
+    if (z == z->getRight() && z->getChild() == nullptr) {
+        min = nullptr;
+    }
+    else {
+        min = z->getRight();
+        consolidate();
+    }
+    numberOfNodes--;
+    return z;
 }
 
 void FibonacciHeap::FibonacciHeap_decreaseKey(Node *node, int k)
@@ -192,12 +229,13 @@ void FibonacciHeap::cascadingCut(Node *y)
 
 void FibonacciHeap::consolidate()
 {
+    
     Node **A, **rootlist;
-    Node *w, *next, *x, *y, *temp;
+    Node* w, *next, *x, *y, *temp;
 
     int d, rootSize;
     // determining the maximum degree according to the following golden rule Φ=(1+√5)/2
-    int max_degree = static_cast<int>(floor(log(static_cast<double>(numberOfNodes)) / log(static_cast<double>(1 + sqrt(static_cast<double>(5))) / 2)));
+    int max_degree = floor(log(numberOfNodes) / log(1 + sqrt(5) / 2) );
 
     // initializing the buffer A
     A = new Node *[max_degree + 2];
@@ -249,7 +287,6 @@ void FibonacciHeap::consolidate()
         {
             if (min == nullptr)
             {
-                //!
                 min = A[i];
                 A[i]->setLeft(A[i]);
                 A[i]->setRight(A[i]);
@@ -271,11 +308,10 @@ void FibonacciHeap::consolidate()
     delete[] A;
 }
 
-void FibonacciHeap::FibonacciHeap_Link(Node *x, Node *y)
+void FibonacciHeap::FibonacciHeap_Link(Node* y, Node* x)
 {
     y->getLeft()->setRight(y->getRight());
     y->getRight()->setLeft(y->getLeft());
-
     if (x->getChild())
     {
         x->getChild()->getLeft()->setRight(y);
