@@ -70,7 +70,7 @@ FibonacciHeap *FibonacciHeap::FibonacciHeap_Union(FibonacciHeap *H)
 
 Node *FibonacciHeap::FibonacciHeap_extractMin()
 {
-    /*
+  
     Node *result = min;
     Node* chd;
     Node* nxt;
@@ -115,39 +115,6 @@ Node *FibonacciHeap::FibonacciHeap_extractMin()
         numberOfNodes--;
     }
     return result;
-    */
-    if (!min) { return nullptr; }
-    Node* z = min;
-    Node* pointer;
-    pointer = z;
-    Node* x;
-    if (z->getChild()){
-        x = z->getChild();
-        do {
-            pointer = x->getRight();
-            min->getLeft()->setRight(x);
-            x->setRight(min);
-            x->setLeft(min->getLeft());
-            min->setLeft(x);
-            if (x->getKey() < min->getKey()) {
-                min = x;
-            }
-            x->setParent(nullptr);
-            x = pointer;
-        } while (pointer != z->getChild());
-    }
-    z->getLeft()->setRight(z->getRight());
-    z->getRight()->setLeft(z->getLeft());
-    min = z->getRight();
-    if (z == z->getRight() && z->getChild() == nullptr) {
-        min = nullptr;
-    }
-    else {
-        min = z->getRight();
-        consolidate();
-    }
-    numberOfNodes--;
-    return z;
 }
 
 void FibonacciHeap::FibonacciHeap_decreaseKey(Node *node, int k)
@@ -235,7 +202,7 @@ void FibonacciHeap::consolidate()
 
     int d, rootSize;
     // determining the maximum degree according to the following golden rule Φ=(1+√5)/2
-    int max_degree = floor(log(numberOfNodes) / log(1 + sqrt(5) / 2) );
+    int max_degree = floor(log(numberOfNodes) / log((1 + sqrt(5)) / 2) );
 
     // initializing the buffer A
     A = new Node *[max_degree + 2];
