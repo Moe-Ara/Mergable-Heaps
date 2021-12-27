@@ -327,10 +327,10 @@ To run the project, use the Makefile:
 ```
 ### 1. Result of running ___output.exe___ (Each operation is run 1000 000 times):
 
-<img src=".\ScreenShots\output.jpg" height=25% width=25%>
+<img src=".\ScreenShots\output.jpg" height=50% width=50%>
 
 ### 2. Result of running ___Test1.cpp___ in visual studio (Each operation is run 10 000 times):
 
-<img src=".\ScreenShots\testCases.jpg" height=30% width=30%>
+<img src=".\ScreenShots\testCases.jpg" height=50% width=50%>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
