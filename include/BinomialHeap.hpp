@@ -83,6 +83,7 @@ public:
 	/// This operation takes O(1) time
 	/// </summary>
 	BinomialHeap();
+	BinomialHeap(Node*);
 	/// <summary>
 	/// <b>Description</b>
 	/// <br/>
